@@ -12,10 +12,65 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Grab out properties for use in these Spring Configs
-	<context:property-placeholder location="file:${catalina.home}/conf/chopper.properties" />
-	-->
+	<context:component-scan
+			base-package="com.xunjiu.*" />
 
+	<context:property-placeholder
+			location="file:${catalina.home}/conf/application-oss.properties,file:${catalina.home}/conf/mq-client.properties,file:${catalina.home}/conf/ali-oss.properties" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		  destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+				  value="jdbc:mysql://118.31.10.54:3306/chopper?useUnicode=true" />
+		<property name="username" value="root" />
+		<property name="password" value="qiaoBO19931205" />
+		<property name="maxActive" value="5" />
+		<property name="maxIdle" value="5" />
+		<property name="minIdle" value="1" />
+		<property name="initialSize" value="1" />
+		<property name="maxWait" value="3000" /><!-- 3 seconds -->
+		<property name="validationQuery" value="select 1 from dual" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false"/>
+		<property name="timeBetweenEvictionRunsMillis" value="30000"/>
+		<property name="minEvictableIdleTimeMillis" value="1800000"/>
+		<property name="numTestsPerEvictionRun" value="3"/>
+		<property name="removeAbandoned" value="true"/>
+		<property name="removeAbandonedTimeout" value="180"/><!-- 180 seconds -->
+		<property name="defaultAutoCommit" value="false"/>
+		<!-- <property name="enableAutocommitOnReturn" value="false" /> --><!-- dbcp v1.4不支持 -->
+	</bean>
+
+	<bean id="transactionManager"
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<!-- 扫描mappers目录以及子目录下的所有xml文件 -->
+		<property name="mapperLocations" value="classpath*:com/**/dao/*.xml" />
+	</bean>
+
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xunjiu.member.dao.MemberDao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
+
+	<!-- support file upload -->
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000000" /> <!-- 100M -->
+		<!-- need to handle MaxUploadSizeExceededException in controller -->
+		<property name="resolveLazily" value="true" />
+	</bean>
 
 
 
