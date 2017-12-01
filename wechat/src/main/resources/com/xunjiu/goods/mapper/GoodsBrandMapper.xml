@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xunjiu.goods.mapper.GoodsBrandMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.xunjiu.goods.model.GoodsBrand">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="enable" property="enable"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        name,
+        enable,
+        update_time,
+        update_by,
+        create_time,
+        create_by
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO goods_brand
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.name != null"> name, </if>
+            <if test="pojo.enable != null"> enable, </if>
+            <if test="pojo.updateTime != null"> update_time, </if>
+            <if test="pojo.updateBy != null"> update_by, </if>
+            <if test="pojo.createTime != null"> create_time, </if>
+            <if test="pojo.createBy != null"> create_by, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.name != null"> #{pojo.name}, </if>
+            <if test="pojo.enable != null"> #{pojo.enable}, </if>
+            <if test="pojo.updateTime != null"> #{pojo.updateTime}, </if>
+            <if test="pojo.updateBy != null"> #{pojo.updateBy}, </if>
+            <if test="pojo.createTime != null"> #{pojo.createTime}, </if>
+            <if test="pojo.createBy != null"> #{pojo.createBy}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO goods_brand(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.name},
+            #{pojo.enable},
+            #{pojo.updateTime},
+            #{pojo.updateBy},
+            #{pojo.createTime},
+            #{pojo.createBy}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE goods_brand
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.enable != null"> enable = #{pojo.enable}, </if>
+            <if test="pojo.updateBy != null"> update_by = #{pojo.updateBy}, </if>
+            <if test="pojo.createTime != null"> create_time = #{pojo.createTime}, </if>
+            <if test="pojo.createBy != null"> create_by = #{pojo.createBy}, </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM goods_brand
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.name != null"> AND name = #{pojo.name} </if>
+            <if test="pojo.enable != null"> AND enable = #{pojo.enable} </if>
+            <if test="pojo.updateTime != null"> AND update_time = #{pojo.updateTime} </if>
+            <if test="pojo.updateBy != null"> AND update_by = #{pojo.updateBy} </if>
+            <if test="pojo.createTime != null"> AND create_time = #{pojo.createTime} </if>
+            <if test="pojo.createBy != null"> AND create_by = #{pojo.createBy} </if>
+        </where>
+        LIMIT 10000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM goods_brand where id = #{pojo.id}
+    </delete>
+</mapper>

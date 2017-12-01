@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberServiceImpl implements MemberService {
 
-    @Autowired
-    private MemberDao memberDao;
-
     public Member findMember() {
-        return memberDao.findMember();
+        return null;
     }
 }

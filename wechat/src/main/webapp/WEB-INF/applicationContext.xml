@@ -22,7 +22,7 @@
 		  destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-				  value="jdbc:mysql://118.31.10.54:3306/chopper?useUnicode=true" />
+				  value="jdbc:mysql://118.31.10.54:3306/chopper?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username" value="root" />
 		<property name="password" value="qiaoBO19931205" />
 		<property name="maxActive" value="5" />
@@ -51,17 +51,16 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<!-- 扫描mappers目录以及子目录下的所有xml文件 -->
-		<property name="mapperLocations" value="classpath*:com/**/dao/*.xml" />
-	</bean>
-
-	<!-- DAO接口所在包名，Spring会自动查找其下的类 ,包下的类需要使用@MapperScan注解,否则容器注入会失败 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.xunjiu.member.dao.MemberDao" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+		<property name="mapperLocations" value="classpath*:com/xunjiu/member/**/**.xml" />
 	</bean>
 
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
+
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xunjiu.member.dao,com.xunjiu.**.mapper" />
 	</bean>
 
 	<!-- support file upload -->

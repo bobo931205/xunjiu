@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xunjiu.goods.mapper.GoodsMapper">
+
+<!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.xunjiu.goods.model.Goods">
+        <result column="id" property="id"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="brand_id" property="brandId"/>
+        <result column="name" property="name"/>
+        <result column="unit" property="unit"/>
+        <result column="images" property="images"/>
+        <result column="price" property="price"/>
+        <result column="describe" property="describe"/>
+        <result column="sort" property="sort"/>
+        <result column="onsale" property="onsale"/>
+        <result column="enable" property="enable"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+    </resultMap>
+
+<!--auto generated Code-->
+    <sql id="all_column">
+        id,
+        category_id,
+        brand_id,
+        name,
+        unit,
+        images,
+        price,
+        describe,
+        sort,
+        onsale,
+        enable,
+        update_time,
+        update_by,
+        create_time,
+        create_by
+    </sql>
+
+<!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO goods
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> id, </if>
+            <if test="pojo.categoryId != null"> category_id, </if>
+            <if test="pojo.brandId != null"> brand_id, </if>
+            <if test="pojo.name != null"> name, </if>
+            <if test="pojo.unit != null"> unit, </if>
+            <if test="pojo.images != null"> images, </if>
+            <if test="pojo.price != null"> price, </if>
+            <if test="pojo.describe != null"> describe, </if>
+            <if test="pojo.sort != null"> sort, </if>
+            <if test="pojo.onsale != null"> onsale, </if>
+            <if test="pojo.enable != null"> enable, </if>
+            <if test="pojo.updateTime != null"> update_time, </if>
+            <if test="pojo.updateBy != null"> update_by, </if>
+            <if test="pojo.createTime != null"> create_time, </if>
+            <if test="pojo.createBy != null"> create_by, </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id != null"> #{pojo.id}, </if>
+            <if test="pojo.categoryId != null"> #{pojo.categoryId}, </if>
+            <if test="pojo.brandId != null"> #{pojo.brandId}, </if>
+            <if test="pojo.name != null"> #{pojo.name}, </if>
+            <if test="pojo.unit != null"> #{pojo.unit}, </if>
+            <if test="pojo.images != null"> #{pojo.images}, </if>
+            <if test="pojo.price != null"> #{pojo.price}, </if>
+            <if test="pojo.describe != null"> #{pojo.describe}, </if>
+            <if test="pojo.sort != null"> #{pojo.sort}, </if>
+            <if test="pojo.onsale != null"> #{pojo.onsale}, </if>
+            <if test="pojo.enable != null"> #{pojo.enable}, </if>
+            <if test="pojo.updateTime != null"> #{pojo.updateTime}, </if>
+            <if test="pojo.updateBy != null"> #{pojo.updateBy}, </if>
+            <if test="pojo.createTime != null"> #{pojo.createTime}, </if>
+            <if test="pojo.createBy != null"> #{pojo.createBy}, </if>
+        </trim>
+    </insert>
+
+<!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO goods(
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.categoryId},
+            #{pojo.brandId},
+            #{pojo.name},
+            #{pojo.unit},
+            #{pojo.images},
+            #{pojo.price},
+            #{pojo.describe},
+            #{pojo.sort},
+            #{pojo.onsale},
+            #{pojo.enable},
+            #{pojo.updateTime},
+            #{pojo.updateBy},
+            #{pojo.createTime},
+            #{pojo.createBy}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated Code-->
+    <update id="update">
+        UPDATE goods
+        <set>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.categoryId != null"> category_id = #{pojo.categoryId}, </if>
+            <if test="pojo.brandId != null"> brand_id = #{pojo.brandId}, </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.unit != null"> unit = #{pojo.unit}, </if>
+            <if test="pojo.images != null"> images = #{pojo.images}, </if>
+            <if test="pojo.price != null"> price = #{pojo.price}, </if>
+            <if test="pojo.describe != null"> describe = #{pojo.describe}, </if>
+            <if test="pojo.sort != null"> sort = #{pojo.sort}, </if>
+            <if test="pojo.onsale != null"> onsale = #{pojo.onsale}, </if>
+            <if test="pojo.enable != null"> enable = #{pojo.enable}, </if>
+            <if test="pojo.updateBy != null"> update_by = #{pojo.updateBy}, </if>
+            <if test="pojo.createTime != null"> create_time = #{pojo.createTime}, </if>
+            <if test="pojo.createBy != null"> create_by = #{pojo.createBy}, </if>
+        </set>
+         WHERE id = #{pojo.id}
+    </update>
+
+<!--auto generated Code-->
+    <select id="select" resultMap="AllColumnMap">
+        SELECT <include refid="all_column"/>
+        FROM goods
+        <where>
+            <if test="pojo.id != null"> AND id = #{pojo.id} </if>
+            <if test="pojo.categoryId != null"> AND category_id = #{pojo.categoryId} </if>
+            <if test="pojo.brandId != null"> AND brand_id = #{pojo.brandId} </if>
+            <if test="pojo.name != null"> AND name = #{pojo.name} </if>
+            <if test="pojo.unit != null"> AND unit = #{pojo.unit} </if>
+            <if test="pojo.images != null"> AND images = #{pojo.images} </if>
+            <if test="pojo.price != null"> AND price = #{pojo.price} </if>
+            <if test="pojo.describe != null"> AND describe = #{pojo.describe} </if>
+            <if test="pojo.sort != null"> AND sort = #{pojo.sort} </if>
+            <if test="pojo.onsale != null"> AND onsale = #{pojo.onsale} </if>
+            <if test="pojo.enable != null"> AND enable = #{pojo.enable} </if>
+            <if test="pojo.updateTime != null"> AND update_time = #{pojo.updateTime} </if>
+            <if test="pojo.updateBy != null"> AND update_by = #{pojo.updateBy} </if>
+            <if test="pojo.createTime != null"> AND create_time = #{pojo.createTime} </if>
+            <if test="pojo.createBy != null"> AND create_by = #{pojo.createBy} </if>
+        </where>
+        LIMIT 10000 
+    </select>
+
+<!--auto generated Code-->
+    <delete id="delete">
+        DELETE FROM goods where id = #{pojo.id}
+    </delete>
+</mapper>
