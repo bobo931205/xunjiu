@@ -5,6 +5,8 @@ import com.xunjiu.goods.model.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by wangqb on 2017/11/30.
  */
@@ -19,4 +21,14 @@ public class GoodsDaoImpl implements GoodsDao{
         goods.setId(id);
         return goods;
     }
+
+    public Goods findGoodsById(int id) {
+        return null;
+    }
+
+    public List<Goods> findGoods() {
+        Goods goods = new Goods();
+        return goodsMapper.select(goods);
+    }
+
 }

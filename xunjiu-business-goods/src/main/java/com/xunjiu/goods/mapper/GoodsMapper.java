@@ -16,7 +16,7 @@ public interface GoodsMapper {
 
     int update(Goods goods);
 
-    List<Goods> select(Goods goods);
+    List<Goods> select(@Param("pojo") Goods goods);
 
     int delete(Goods goods);
 }

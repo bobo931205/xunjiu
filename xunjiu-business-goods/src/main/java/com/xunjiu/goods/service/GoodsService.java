@@ -10,10 +10,12 @@ import java.util.List;
 public interface GoodsService {
 
     /**
-     * ???????????
+     * 获取在售的商品列表
      * @return
      */
     List<Goods> findOnsaleGoods();
+
+    Goods findGoodsById();
 
     Goods add(Goods goods);
 }

@@ -5,11 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xunjiu</groupId>
-    <artifactId>wechat</artifactId>
+    <artifactId>xunjiu-business-goods</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>wechat</name>
-    <description>xunjiu wechat</description>
 
     <properties>
         <spring.version>4.3.7.RELEASE</spring.version>
@@ -92,33 +89,5 @@
             <artifactId>commons-fileupload</artifactId>
             <version>${commons.fileupload.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.xunjiu</groupId>
-            <artifactId>xunjiu-business-goods</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bgee.log4jdbc-log4j2</groupId>
-            <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-            <version>1.16</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
-        </dependency>
     </dependencies>
-
 </project>

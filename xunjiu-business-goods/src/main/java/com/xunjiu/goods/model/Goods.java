@@ -142,4 +142,5 @@ public class Goods {
     public void setCreateBy(int createBy) {
         this.createBy = createBy;
     }
+
 }

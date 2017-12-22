@@ -26,11 +26,11 @@
         id,
         category_id,
         brand_id,
-        name,
+        `name`,
         unit,
         images,
         price,
-        describe,
+        `describe`,
         sort,
         onsale,
         enable,
@@ -140,7 +140,7 @@
             <if test="pojo.unit != null"> AND unit = #{pojo.unit} </if>
             <if test="pojo.images != null"> AND images = #{pojo.images} </if>
             <if test="pojo.price != null"> AND price = #{pojo.price} </if>
-            <if test="pojo.describe != null"> AND describe = #{pojo.describe} </if>
+            <if test="pojo.describe != null"> AND `describe` = #{pojo.describe} </if>
             <if test="pojo.sort != null"> AND sort = #{pojo.sort} </if>
             <if test="pojo.onsale != null"> AND onsale = #{pojo.onsale} </if>
             <if test="pojo.enable != null"> AND enable = #{pojo.enable} </if>
@@ -149,7 +149,6 @@
             <if test="pojo.createTime != null"> AND create_time = #{pojo.createTime} </if>
             <if test="pojo.createBy != null"> AND create_by = #{pojo.createBy} </if>
         </where>
-        LIMIT 10000 
     </select>
 
 <!--auto generated Code-->
