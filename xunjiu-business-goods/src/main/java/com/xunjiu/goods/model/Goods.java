@@ -7,43 +7,43 @@ import java.util.Date;
  */
 public class Goods {
 
-    private int id;
-    private int categoryId;
-    private int brandId;
+    private Integer id;
+    private Integer categoryId;
+    private Integer brandId;
     private String name;
     private String unit;
     private String images;
     private Double price;
     private String describe;
-    private int sort;
-    private int onsale;
-    private int enable;
+    private Integer sort;
+    private Integer onsale;
+    private Integer enable;
     private Date updateTime;
-    private int updateBy;
+    private Integer updateBy;
     private Date createTime;
-    private int createBy;
+    private Integer createBy;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
-    public int getBrandId() {
+    public Integer getBrandId() {
         return brandId;
     }
 
-    public void setBrandId(int brandId) {
+    public void setBrandId(Integer brandId) {
         this.brandId = brandId;
     }
 
@@ -87,27 +87,27 @@ public class Goods {
         this.describe = describe;
     }
 
-    public int getSort() {
+    public Integer getSort() {
         return sort;
     }
 
-    public void setSort(int sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 
-    public int getOnsale() {
+    public Integer getOnsale() {
         return onsale;
     }
 
-    public void setOnsale(int onsale) {
+    public void setOnsale(Integer onsale) {
         this.onsale = onsale;
     }
 
-    public int getEnable() {
+    public Integer getEnable() {
         return enable;
     }
 
-    public void setEnable(int enable) {
+    public void setEnable(Integer enable) {
         this.enable = enable;
     }
 
@@ -119,11 +119,11 @@ public class Goods {
         this.updateTime = updateTime;
     }
 
-    public int getUpdateBy() {
+    public Integer getUpdateBy() {
         return updateBy;
     }
 
-    public void setUpdateBy(int updateBy) {
+    public void setUpdateBy(Integer updateBy) {
         this.updateBy = updateBy;
     }
 
@@ -135,12 +135,11 @@ public class Goods {
         this.createTime = createTime;
     }
 
-    public int getCreateBy() {
+    public Integer getCreateBy() {
         return createBy;
     }
 
-    public void setCreateBy(int createBy) {
+    public void setCreateBy(Integer createBy) {
         this.createBy = createBy;
     }
-
 }
