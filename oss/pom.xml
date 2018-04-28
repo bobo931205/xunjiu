@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xunjiu</groupId>
-    <artifactId>wechat</artifactId>
+    <artifactId>oss</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>wechat</name>
-    <description>xunjiu wechat</description>
+    <name>oss</name>
+    <description>xunjiu oss</description>
 
     <properties>
         <spring.version>4.3.7.RELEASE</spring.version>
